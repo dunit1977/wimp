@@ -7,14 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "movies")
 public class Movie {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
 	@Column(length = 300, nullable = false)
 	private String title;
 	@Column(nullable = true)
@@ -27,9 +28,8 @@ public class Movie {
 	public Movie() {
 	}
 
-	public Movie(Long id, String title, Date releaseDate, Long budget, String distributor) {
-		super();
-		this.id = id;
+	public Movie(String title, Date releaseDate, Long budget, String distributor) {
+
 		this.title = title;
 		this.releaseDate = releaseDate;
 		this.budget = budget;
