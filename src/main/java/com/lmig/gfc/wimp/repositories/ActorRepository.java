@@ -10,6 +10,6 @@ import com.lmig.gfc.wimp.models.Actor;
 @Repository
 public interface ActorRepository extends JpaRepository<Actor, Long> {
 
-	List<Actor> findByLastNameIgnoringCase(String lastname);
+//	List<Actor> findByLastNameIgnoringCase(String lastname);
 
 }

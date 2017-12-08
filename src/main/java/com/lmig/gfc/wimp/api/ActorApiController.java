@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lmig.gfc.wimp.repositories.ActorRepository;
 import com.lmig.gfc.wimp.models.Actor;
+import com.lmig.gfc.wimp.models.ActorView;
 
 @RestController
 @RequestMapping("/api/actors")
@@ -31,11 +32,17 @@ public class ActorApiController {
 
 	@GetMapping("")
 //	public List<Actor> getAll(@RequestParam(required = false) String lastName) {
-	public List<Actor> getAll(){
+	public List<ActorView> getAll(){
+		List<Actor> actors = actorRepository.findAll();
+		ArrayList<ActorView> actorView = new ArrayList<ActorView>();
+		for (Actor actor : actors) {
+			actorView.add(new ActorView(actor));
+		}
 //		if (lastName != null) {
 //			return actorRepository.findByLastNameIgnoringCase(lastName);
 //		}
-		return actorRepository.findAll();
+//		return actorRepository.findAll();
+		return actorView;
 	}
 
 	@PostMapping("")

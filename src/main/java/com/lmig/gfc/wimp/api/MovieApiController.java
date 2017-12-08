@@ -30,9 +30,9 @@ public class MovieApiController {
 	}
 
 	@GetMapping("")
-	// public List<Movie> getAll (@RequestParam(required = false) Long budget){
-	// if (budget != null) {
-	public List<Movie> getAll() {
+	public List<Movie> getAll(@RequestParam(required = false) Long budget) {
+		// if (budget != null) {
+		// public List<Movie> getAll() {
 		// return movieRepository.findByBudgetIgnoringCase(budget);
 		// }
 		return movieRepository.findAll();
